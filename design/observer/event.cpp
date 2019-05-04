@@ -16,10 +16,10 @@ event_msg::event_msg()
 event_msg::~event_msg()
 {
 	event_observer* pstTmpObserver;
-	std::iterator<event_observer*> it = m_listEvent.begin();
+	std::list<event_observer*>::iterator it = m_listEvent.begin();
 	for( ; it!=m_listEvent.end(); it++ )
 	{
-		pstTmpObserver = it->second;
+		pstTmpObserver = *it;
 		delete pstTmpObserver;
 	}
 }
@@ -34,10 +34,10 @@ int event_msg::EventReg(event_observer* pstObserver)
 int event_msg::EventUnreg(event_observer* pstObserver)
 {
 	event_observer* pstTmpObserver;
-	std::iterator<event_observer*> it = m_listEvent.begin();
+	std::list<event_observer*>::iterator it = m_listEvent.begin();
 	for( ; it!= m_listEvent.end(); it++ )
 	{
-		pstTmpObserver = it->second;
+		pstTmpObserver = *it;
 		if( pstObserver == pstTmpObserver)
 		{
 			return 0;
@@ -50,10 +50,10 @@ int event_msg::EventUnreg(event_observer* pstObserver)
 int event_msg::EventMsgRecv(int iEventType)
 {
 	event_observer* pstTmpObserver;
-	std::iterator<event_observer*> it = m_listEvent.begin();
+	std::list<event_observer*>::iterator it = m_listEvent.begin();
 	for( ; it!=m_listEvent.end(); it++ )
 	{
-		pstTmpObserver = it->second;
+		pstTmpObserver = *it;
 		pstTmpObserver->event_proc(iEventType);	
 	}
 	

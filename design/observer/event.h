@@ -5,7 +5,7 @@ class event_observer{
 public:
 	enum{
 		CHAN_CREATE,
-		CHAN_DESTROY;
+		CHAN_DESTROY
 	};
 	
 	virtual int event_proc(int iEventType) = 0;
