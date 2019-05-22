@@ -20,6 +20,9 @@ set (Design_VERSION_MINOR 0)
 # add the executable
 #add_executable()
 
+SET(CMAKE_C_COMPIILER)
+add_compile_options(-std=c++11)piler_op
+
 add_subdirectory(adapter)
 add_subdirectory(bridge)
 add_subdirectory(builder)
