@@ -23,6 +23,9 @@ set (Design_VERSION_MINOR 0)
 SET(CMAKE_C_COMPIILER)
 add_compile_options(-std=c++11)
 
+message("-- system arch:  ${CMAKE_SYSTEM_PROCESSOR}")
+message("-- output path:  ${PROJECT_OUTPUT_DIR}")
+
 add_subdirectory(adapter)
 add_subdirectory(bridge)
 add_subdirectory(builder)
